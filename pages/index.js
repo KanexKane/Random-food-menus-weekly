@@ -47,7 +47,7 @@ export default function Home() {
         <title>สุ่มรายการอาหารทั้งสัปดาห์</title>
       </Head>
 
-      <div style={{ width: '80vh', margin: '2em auto' }}>
+      <div style={{ width: '80%', margin: '2em auto' }}>
         <h1 style={{ textAlign: 'center' }}>สุ่มรายการอาหารทั้งสัปดาห์!</h1>
         {menus.map((item, index) => {
           if (typeof item == 'number') {
@@ -59,11 +59,11 @@ export default function Home() {
             )
           }
         })}
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <button className='btn-random' onClick={randomMenus}>
-          สุ่มรายการอาหารหน่อย
-        </button>
+        <div style={{ textAlign: 'center' }}>
+          <button className='btn-random' onClick={randomMenus}>
+            สุ่มรายการอาหารหน่อย
+          </button>
+        </div>
       </div>
     </div>
   )
