@@ -45,6 +45,8 @@ export default function Home() {
     <div>
       <Head>
         <title>สุ่มรายการอาหารทั้งสัปดาห์</title>
+        <link rel='manifest' href='/manifest.json' />
+        <meta name='theme-color' content='#b088f9' />
       </Head>
 
       <div style={{ width: '80%', margin: '2em auto' }}>

@@ -1,0 +1,9 @@
+{
+  "name": "สุ่มรายการอาหารทั้งสัปดาห์",
+  "short_name": "random-food-menus-weekly",
+  "theme_color": "#b088f9",
+  "background_color": "#da9ff9",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}
