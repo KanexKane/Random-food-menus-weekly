@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+
+import { Button, Row, Col, List, Timeline } from 'antd'
+import 'antd/dist/antd.css'
+
+import '../styles/Home.module.css'
 
 import DataMenus from '../public/menus.json'
 
@@ -19,7 +23,17 @@ export default function Home() {
     'อาทิตย์',
   ]
 
-  const randomMenus = () => {
+  const colorDaysInWeek = [
+    'yellow',
+    'pink',
+    'green',
+    'orange',
+    'blue',
+    'purple',
+    'red',
+  ]
+
+  const randomMenusWeekly = () => {
     const countMenuAll = DataMenus.length
 
     const nowMenu = []
@@ -37,36 +51,47 @@ export default function Home() {
     setMenus(nowMenu)
   }
 
-  useEffect(() => {
-    randomMenus()
-  }, [])
-
   return (
     <div>
       <Head>
-        <title>สุ่มรายการอาหารทั้งสัปดาห์</title>
+        <title>สุ่มเอาสิ ขี้เกียจคิด!</title>
         <link rel='manifest' href='/manifest.json' />
         <meta name='theme-color' content='#b088f9' />
       </Head>
 
-      <div style={{ width: '80%', margin: '2em auto' }}>
-        <h1 style={{ textAlign: 'center' }}>สุ่มรายการอาหารทั้งสัปดาห์!</h1>
-        {menus.map((item, index) => {
-          if (typeof item == 'number') {
-            return (
-              <div key={index} className='menu-container'>
-                <div className='menu-day'>วัน{daysInWeek[index]}:</div>
-                <div className='menu-name'>{DataMenus[item].name}</div>
-              </div>
-            )
-          }
-        })}
-        <div style={{ textAlign: 'center' }}>
-          <button className='btn-random' onClick={randomMenus}>
-            สุ่มรายการอาหารหน่อย
-          </button>
-        </div>
-      </div>
+      <Row style={{ marginTop: '1em' }}>
+        <Col span={24}>
+          <h1 style={{ textAlign: 'center', marginTop: '1em', color: 'white' }}>
+            สุ่มเอาสิ ขี้เกียจคิด!
+          </h1>
+        </Col>
+      </Row>
+      <Row style={{ marginTop: '2em' }}>
+        <Col span={20} offset={2}>
+          <List
+            itemLayout='horizontal'
+            dataSource={menus}
+            renderItem={(item, index) => (
+              <List.Item>
+                <List.Item.Meta title={`วัน${daysInWeek[index]}`} />
+                <div>
+                  {typeof item == 'number' ? DataMenus[item].name : '(ㆆ_ㆆ)'}
+                </div>
+              </List.Item>
+            )}
+          />
+        </Col>
+      </Row>
+
+      <Row style={{ marginTop: '2em' }}>
+        <Col span={24}>
+          <div style={{ textAlign: 'center' }}>
+            <Button shape='round' size='large' onClick={randomMenusWeekly}>
+              สุ่มรายการอาหาร
+            </Button>
+          </div>
+        </Col>
+      </Row>
     </div>
   )
 }
