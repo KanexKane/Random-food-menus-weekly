@@ -61,7 +61,7 @@ export default function Home() {
 
       <Row style={{ marginTop: '1em' }}>
         <Col span={24}>
-          <h1 style={{ textAlign: 'center', marginTop: '1em', color: 'white' }}>
+          <h1 style={{ textAlign: 'center', marginTop: '1em' }}>
             สุ่มเอาสิ ขี้เกียจคิด!
           </h1>
         </Col>
@@ -71,6 +71,7 @@ export default function Home() {
           <List
             itemLayout='horizontal'
             dataSource={menus}
+            style={{ fontSize: '18px' }}
             renderItem={(item, index) => (
               <List.Item>
                 <List.Item.Meta title={`วัน${daysInWeek[index]}`} />
@@ -86,7 +87,12 @@ export default function Home() {
       <Row style={{ marginTop: '2em' }}>
         <Col span={24}>
           <div style={{ textAlign: 'center' }}>
-            <Button shape='round' size='large' onClick={randomMenusWeekly}>
+            <Button
+              type='primary'
+              shape='round'
+              size='large'
+              onClick={randomMenusWeekly}
+            >
               สุ่มรายการอาหาร
             </Button>
           </div>
